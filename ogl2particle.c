@@ -230,9 +230,6 @@ int isExtensionSupported( const char *extension )
 /*
 /******************************************************************************/
 
-#define PADDR(functype,funcname) \
-    ((funcname = (functype) wglGetProcAddress( #funcname )) == NULL)
-
 int main( int argc, char **argv )
 {
     int success = 0;
