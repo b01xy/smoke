@@ -263,53 +263,7 @@ int main( int argc, char **argv )
         printf("OpenGL Shading Language extensions not available\n" );
         return 1;
     }
-#if 0
-    error |= PADDR(PFNGLCREATEPROGRAMOBJECTARBPROC, glCreateProgramObjectARB);
-    error |= PADDR(PFNGLCREATESHADEROBJECTARBPROC, glCreateShaderObjectARB);
-    error |= PADDR(PFNGLDELETEOBJECTARBPROC, glDeleteObjectARB);
-    error |= PADDR(PFNGLDETACHOBJECTARBPROC, glDetachObjectARB);
-    error |= PADDR(PFNGLATTACHOBJECTARBPROC, glAttachObjectARB);
-    error |= PADDR(PFNGLSHADERSOURCEARBPROC, glShaderSourceARB);
-    error |= PADDR(PFNGLCOMPILESHADERARBPROC, glCompileShaderARB);
-    error |= PADDR(PFNGLLINKPROGRAMARBPROC, glLinkProgramARB);
-    error |= PADDR(PFNGLGETINFOLOGARBPROC, glGetInfoLogARB);
-    error |= PADDR(PFNGLUSEPROGRAMOBJECTARBPROC, glUseProgramObjectARB);
-    error |= PADDR(PFNGLGETOBJECTPARAMETERIVARBPROC, glGetObjectParameterivARB);
-    error |= PADDR(PFNGLGETOBJECTPARAMETERFVARBPROC, glGetObjectParameterfvARB);
-    error |= PADDR(PFNGLGETUNIFORMLOCATIONARBPROC, glGetUniformLocationARB);
-    error |= PADDR(PFNGLBINDATTRIBLOCATIONARBPROC, glBindAttribLocationARB);
-    error |= PADDR(PFNGLUNIFORM1FARBPROC, glUniform1fARB);
-    error |= PADDR(PFNGLUNIFORM2FARBPROC, glUniform2fARB);
-    error |= PADDR(PFNGLUNIFORM3FARBPROC, glUniform3fARB);
-    error |= PADDR(PFNGLUNIFORM4FARBPROC, glUniform4fARB);
-    error |= PADDR(PFNGLUNIFORM1IARBPROC, glUniform1iARB);
-    error |= PADDR(PFNGLUNIFORM2IARBPROC, glUniform2iARB);
-    error |= PADDR(PFNGLUNIFORM3IARBPROC, glUniform3iARB);
-    error |= PADDR(PFNGLUNIFORM4IARBPROC, glUniform4iARB);
-    error |= PADDR(PFNGLUNIFORM1FVARBPROC, glUniform1fvARB);
-    error |= PADDR(PFNGLUNIFORM2FVARBPROC, glUniform2fvARB);
-    error |= PADDR(PFNGLUNIFORM3FVARBPROC, glUniform3fvARB);
-    error |= PADDR(PFNGLUNIFORM4FVARBPROC, glUniform4fvARB);
-    error |= PADDR(PFNGLUNIFORM1IVARBPROC, glUniform1ivARB);
-    error |= PADDR(PFNGLUNIFORM2IVARBPROC, glUniform2ivARB);
-    error |= PADDR(PFNGLUNIFORM3IVARBPROC, glUniform3ivARB);
-    error |= PADDR(PFNGLUNIFORM4IVARBPROC, glUniform4ivARB);
-    error |= PADDR(PFNGLVERTEXATTRIB4FVARBPROC, glVertexAttrib4fvARB);
-    error |= PADDR(PFNGLVERTEXATTRIB3FVARBPROC, glVertexAttrib3fvARB);
-    error |= PADDR(PFNGLVERTEXATTRIB2FVARBPROC, glVertexAttrib2fvARB);
-    error |= PADDR(PFNGLVERTEXATTRIB1FVARBPROC, glVertexAttrib1fvARB);
-    error |= PADDR(PFNGLVERTEXATTRIB4FARBPROC, glVertexAttrib4fARB);
-    error |= PADDR(PFNGLVERTEXATTRIB3FARBPROC, glVertexAttrib3fARB);
-    error |= PADDR(PFNGLVERTEXATTRIB2FARBPROC, glVertexAttrib2fARB);
-    error |= PADDR(PFNGLVERTEXATTRIB1FARBPROC, glVertexAttrib1fARB);
 
-    error |= PADDR(PFNGLVERTEXATTRIBPOINTERARBPROC, glVertexAttribPointerARB);
-    error |= PADDR(PFNGLENABLEVERTEXATTRIBARRAYARBPROC, glEnableVertexAttribArrayARB);
-    error |= PADDR(PFNGLDISABLEVERTEXATTRIBARRAYARBPROC, glDisableVertexAttribArrayARB);
-
-    error |= PADDR(PFNGLTEXIMAGE3DPROC, glTexImage3D);
-    error |= PADDR(PFNGLACTIVETEXTUREPROC, glActiveTexture);
-#endif
     if( error )
     {
         printf( "ERROR from wglGetProcAddress\n" );
