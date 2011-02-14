@@ -38,16 +38,17 @@
 #ifndef __ogl2_particle_h__
 #define __ogl2_particle_h__
 
-#include <windows.h>
-#include <winuser.h>
+//#include <windows.h>
+//#include <winuser.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
-#include <io.h>
+//#include <io.h>
 #include <fcntl.h>
 #include <GL/glu.h>
 #include "glut.h"
-#include <crtdbg.h>
+//#include <crtdbg.h>
+#include <string.h>
 
 #include "glext.h"
 
@@ -67,14 +68,14 @@ typedef enum {
 //
 // Constants
 //
-#define VELOCITY_ARRAY_INDEX 3
+#define VELOCITY_ARRAY_INDEX 6
 #define START_TIME_ARRAY_INDEX 4
 #define RANDOM_ARRAY_INDEX 5
 
 static const int numParticles = 50000;
 static const float emitterRadius = 0.4f;
 
-
+#if 0
 //
 // OpenGL Shading Language entry points
 //
@@ -133,6 +134,7 @@ extern PFNGLDISABLEVERTEXATTRIBARRAYARBPROC glDisableVertexAttribArrayARB;
 extern PFNGLTEXIMAGE3DPROC glTexImage3D;
 extern PFNGLACTIVETEXTUREPROC glActiveTexture;
 
+#endif
 
 // 
 // Objects
@@ -140,7 +142,6 @@ extern PFNGLACTIVETEXTUREPROC glActiveTexture;
 extern GLhandleARB ProgramObject;
 extern GLhandleARB VertexShaderObject;
 extern GLhandleARB FragmentShaderObject;
-
 ////////////////
 // Prototypes //
 ////////////////
@@ -156,5 +157,8 @@ GLint getUniLoc(GLhandleARB progObject, const GLcharARB *name);
 
 int readShaderSource(char *fileName, GLcharARB **vertexShader, GLcharARB **fragmentShader);
 int installParticleShaders(GLcharARB *particleVertex, GLcharARB *particleFragment);
+
+#define TRUE 1
+#define FALSE 0
 
 #endif // __ogl2_particle_h__

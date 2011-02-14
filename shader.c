@@ -37,6 +37,10 @@
 
 #include "ogl2particle.h"
 
+#include <assert.h>
+#define _ASSERT assert
+
+#if 0
 //
 // OpenGL Shading Language entry points
 //
@@ -94,7 +98,7 @@ PFNGLDISABLEVERTEXATTRIBARRAYARBPROC glDisableVertexAttribArrayARB;
 
 PFNGLTEXIMAGE3DPROC glTexImage3D;
 PFNGLACTIVETEXTUREPROC glActiveTexture;
-
+#endif
 
 //
 // Global handles for the currently active program object, with its two shader objects
@@ -183,16 +187,16 @@ int shaderSize(char *fileName, EShaderType shaderType)
     //
     // Open the file
     //
-    shader = _open(name, _O_RDONLY);
+    shader = open(name, O_RDONLY);
     if (shader == -1)
         return -1;
 
     //
     // Seek to the end and find its position
     //
-    count = _lseek(shader, 0, SEEK_END);
+    count = lseek(shader, 0, SEEK_END);
 
-    _close(shader);
+    close(shader);
     return count;
 }
 

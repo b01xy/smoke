@@ -39,7 +39,7 @@
 // The source of the shaders itself are in plain text files. Files ending in
 // .vert are vertex shaders, and files ending in .frag are fragment shaders.
 //
-
+#define GL_GLEXT_PROTOTYPES
 #include "ogl2particle.h"
 
 //
@@ -263,7 +263,7 @@ int main( int argc, char **argv )
         printf("OpenGL Shading Language extensions not available\n" );
         return 1;
     }
-
+#if 0
     error |= PADDR(PFNGLCREATEPROGRAMOBJECTARBPROC, glCreateProgramObjectARB);
     error |= PADDR(PFNGLCREATESHADEROBJECTARBPROC, glCreateShaderObjectARB);
     error |= PADDR(PFNGLDELETEOBJECTARBPROC, glDeleteObjectARB);
@@ -309,7 +309,7 @@ int main( int argc, char **argv )
 
     error |= PADDR(PFNGLTEXIMAGE3DPROC, glTexImage3D);
     error |= PADDR(PFNGLACTIVETEXTUREPROC, glActiveTexture);
-
+#endif
     if( error )
     {
         printf( "ERROR from wglGetProcAddress\n" );

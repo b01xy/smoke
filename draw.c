@@ -41,11 +41,11 @@ static GLfloat* vertices = NULL;
 static GLfloat* colors = NULL;
 static GLfloat* velocities = NULL;
 static GLfloat* startTimes = NULL;
-static GLfloat* randoms = NULL;
+static GLfloat* myrandoms = NULL;
 
 
 
-float random( float low, float high )
+float myrandom( float low, float high )
 {
 	float range = high - low;
 	float multiplier = ( float ) rand() / RAND_MAX;
@@ -55,12 +55,12 @@ float random( float low, float high )
 
 float fireRed()
 {
-	return 1.0 - random( 0.0f, 0.2f );
+	return 1.0 - myrandom( 0.0f, 0.2f );
 }
 
 float fireGreen()
 {
-	return random( 0.0f, 0.5f );
+	return myrandom( 0.0f, 0.5f );
 }
 
 float fireBlue()
@@ -70,20 +70,20 @@ float fireBlue()
 
 void fillRandom( int numPoints )
 {
-	GLfloat* randomPointer;
+	GLfloat* myrandomPointer;
 	int counter;
 
-	if ( randoms == NULL )
+	if ( myrandoms == NULL )
 	{
-		randoms = malloc( numPoints * 3 * sizeof( float ) );
+		myrandoms = malloc( numPoints * 3 * sizeof( float ) );
 	}
 
-	randomPointer = randoms;
+	myrandomPointer = myrandoms;
 
 	for ( counter = 0; counter < numPoints * 3; counter++ )
 	{
-		*randomPointer = random( -1.0f, 1.0f );
-		randomPointer++;
+		*myrandomPointer = myrandom( -1.0f, 1.0f );
+		myrandomPointer++;
 	}
 }
 
@@ -117,8 +117,8 @@ void createPoints( int numPoints )
 
 	for ( counter = 0; counter < numPoints; counter++ )
 	{
-		newRadius = random( 0.0f, 1.0f ) * emitterRadius;
-		angle = random( 0.0f, 360.0f );
+		newRadius = myrandom( 0.0f, 1.0f ) * emitterRadius;
+		angle = myrandom( 0.0f, 360.0f );
 
 		*vertexPointer = 0.0f;
 		*( vertexPointer + 1 ) = newRadius * sin( angle );
@@ -130,12 +130,12 @@ void createPoints( int numPoints )
 		*( colorPointer + 2 ) = fireBlue();
 		colorPointer += 3;
 
-		*velocityPointer = random( 2.0f, 10.0f );
-		*( velocityPointer + 1 ) = random( 0.5f, 1.0f );
-		*( velocityPointer + 2 ) = random( 0.5f, 1.0f );
+		*velocityPointer = myrandom( 2.0f, 10.0f );
+		*( velocityPointer + 1 ) = myrandom( 0.5f, 1.0f );
+		*( velocityPointer + 2 ) = myrandom( 0.5f, 1.0f );
 		velocityPointer += 3;
 
-		*startTimePointer = random( 0.0f, 10.0f );
+		*startTimePointer = myrandom( 0.0f, 10.0f );
 		startTimePointer++;
 	}
 
@@ -152,7 +152,7 @@ void drawPoints()
 	glColorPointer( 3, GL_FLOAT, 0, colors );
 	glVertexAttribPointerARB( VELOCITY_ARRAY_INDEX,  3, GL_FLOAT, GL_FALSE, 0, velocities );
 	glVertexAttribPointerARB( START_TIME_ARRAY_INDEX, 1, GL_FLOAT, GL_FALSE, 0, startTimes );
-	glVertexAttribPointerARB( RANDOM_ARRAY_INDEX, 3, GL_FLOAT, GL_FALSE, 0, randoms );
+	glVertexAttribPointerARB( RANDOM_ARRAY_INDEX, 3, GL_FLOAT, GL_FALSE, 0, myrandoms );
 
 	glEnableClientState( GL_VERTEX_ARRAY );
 	glEnableClientState( GL_COLOR_ARRAY );
